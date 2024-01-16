@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: -0.6px;
+}
+
+button {
+  display: flex;
+  box-shadow: none;
+  border: 1px solid transparent;
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  outline: none;
+  line-height: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: darkslateblue;
+}
+
+button:hover {
+  background-color: rgb(120, 109, 188);
+}
+
+body {
+  padding: 0;
+  overflow-y: scroll;
+}
+
+input {
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid rgb(97, 32, 158);
+  color: black;
+  font-size: 1.2rem;
+  outline: none;
+  padding: 10px 15px;
+  width: 700px;
+}
+
+.container {
+  display: block;
+  text-align: center;
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  place-items: center;
+}
+
+.contenido {
+  display: grid;
+  align-items: center;
+  place-items: center;
+  background-color: rgb(228, 228, 228);
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer {
+  display: flex;
+  background-color: rgb(122, 224, 21);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+h4 {
+  margin: 0;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+}
+
+span {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card-grid {
+  display: flex;
+  width: 1120px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 13px;
+}
+
+.card {
+  align-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  height: 0%;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.card p {
+  background-color: white;
+  flex: 1;
+  font-size: 1.5rem;
+  margin-top: 5px;
+  padding: 5px 20px 0px 20px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+}
+
+.menu {
+  background-color: aqua;
+  width: 150px;
+  height: 500px;
+}
+
+.menu-side {
+  display: flex;
+  width: 150px;
+
+}
+
+.menu-side button {
+  display: flex;
+  box-shadow: none;
+  border: 1px solid transparent;
+  font-size: 25px;
+  font-weight: 800;
+  color: darkslateblue;
+  outline: none;
+  line-height: 100%;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+}
+
+.menu-side button img {
+  width: 15px;
+}
+
+.items {
+  background-color: white;
+  width: 240px;
+  height: 520px;
+  padding: 15px;
+}
+
+.items-carrito {
+  display: flex;
+  background-color: white;
+  width: 720px;
+  height: 110px;
+  padding: 15px;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.items-carrito-div{
+  width: 35px;
+  display: grid;
+}
+.items-carrito-div2{
+  width: 650px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+.items-carrito-precio{
+  text-align: start;
+}
+
+.items-carrito img {
+  width: 100px;
+  height: 100px;
+}
+
+.items img {
+  width: 230px;
+  height: 240px;
+}
+.resumen-carrito{
+  margin-top: 15px;
+  display: grid;
+  height: 250px;
+}
+.items-carrito-titulo{
+  display: grid;
+  place-items: center;
+  width: 320px;
+}
+.items-carrito-titulo-sub{
+  display: grid;
+  width: 270px;
+  text-align: start;
+  gap: 5px;
+}
+
+.caja-nombre {
+  width: 240px;
+  height: 65px;
+  border-top: 50px;
+  text-align: center;
+}
+
+.caja-nombre-carrito {
+  width: 260px;
+  height: 60px;
+  border-top: 50px;
+  text-align: start;
+}
+
+.caja-nombre-span{
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  display: -webkit-box;
+      -webkit-line-clamp: 3; /* Número de líneas antes de aplicar los puntos suspensivos */
+      -webkit-box-orient: vertical;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.resumen {
+  text-align: start;
+}
+
+.stock-id {
+  display: flex;
+  gap: 60px;
+  height: 25px;
+}
+
+.boton-carrito {
+  border-radius: 25px;
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+}
+
+.carrito {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 80px;
+  text-align: center;
+}
+
+.carrito a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+}
+
+.carrito img {
+  width: 45px;
+  height: 45px;
+}
+
+.carrito span {
+  position: absolute;
+  top: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.boton-mas-menos {
+  background-color: darkslateblue;
+  border-radius: 10px;
+  box-shadow: none;
+  border: 1px solid transparent;
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+  outline: none;
+  line-height: 100%;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  align-content: center;
+  align-items: center;
+}
+
+.carrito-cantidad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.venta-total {
+  display: grid;
+  align-items: center;
+  padding: 15px;
+  width: 340px;
+  height: 200px;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.venta-total-div {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.products-car {
+  display: flex;
+  width: 65%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  width: 310px;
+  text-align: center;
+}
+
+.modal-contenedor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.fondo-modal-login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.modal {
+  position: relative;
+  width: 550px;
+  height: 550px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-container {
+  display: grid;
+  width: 530px;
+  height: 530px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal form {
+  display: grid;
+  width: 100%;
+  gap: 10px;
+  text-align: start;
+}
+
+.modal-input {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgb(97, 32, 158);
+  color: black;
+  font-size: 1.2rem;
+  width: 369px;
+}
+
+.boton-cerrar {
+  position: relative;
+  right: -420px;
+  top: -10px;
+  background-color: darkslateblue;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid transparent;
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+  outline: none;
+  line-height: 100%;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.boton-inicia-sesion {
+  background-color: transparent;
+  color: darkslateblue;
+}
+
+.boton-inicia-sesion:hover {
+  background-color: transparent;
+  color: dimgray;
+}
+
+.cargar-productos {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  width: 1112px;
+  height: auto;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cargar-productos button {
+  width: 180px;
+  height: 40px;
+  color: white;
+  font-weight: 500;
+}
+
+.agregar-productos {
+  display: grid;
+  width: 200px;
+}
+
+
+.form-agregar-productos {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.modal-agregar-productos {
+  position: relative;
+  width: 550px;
+  height: 550px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-agregar-productos form {
+  display: grid;
+  width: 440px;
+  height: 380px;
+  gap: 10px;
+  text-align: start;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-input-productos {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgb(97, 32, 158);
+  color: black;
+  font-size: 1.2rem;
+  width: 182px;
+}
+
+.input-file {
+  border: 2px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  width: 410px;
+  font-size: 15px;
+}
+.modal-login-boton{
+  width: 400px;
+}
+.paginacion{
+  display: flex;
+  width: 245px;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.paginacion button{
+  width: 35px;
+  height: 35px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 100px;
+  background-color: transparent;
+}
+.paginacion img{
+  width: 15px;
+  fill: aliceblue;
+}
+.paginacion-page{
+  display: flex;
+  width: 140px;
+  overflow: hidden;
+}
+.paginacion-page button{
+  width: 35px;
+  height: 35px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 100px;
+  background-color: transparent;
+  color: darkslateblue;
+}
+
+.paginacion-page button:hover{
+  background-color: rgb(205, 200, 237);
+}
+
+.cuadro-elimnacion{
+  display: flex;
+  position: absolute;
+  top: 90%;
+  left: 38%;
+  background-color: darkslateblue;
+  border-radius: 15px;
+  width: 400px;
+  height: 50px;
+  font-size: 15px;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: start;
+  color: white;
+}
+
+
+.cuadro-elimnacion h5{
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+.cuadro-elimnacion-span{
+  width: 280px;
+  height: 35px;
+  overflow: hidden;
+}
+.input-valid-car{
+  width: 20px;
+  transform: scale(1.3);
+}
