@@ -7,7 +7,6 @@ import { IniciarSesion } from './IniciarSesion';
 import { Titulo } from './Titulo';
 import { Menu } from './Menu';
 import { FooterItem } from './FooterItem';
-import { CerrarSesion } from './CerrarSesion';
 
 export const TiendaPlusCarrito = () => {
     

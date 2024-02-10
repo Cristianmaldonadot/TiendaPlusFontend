@@ -1,0 +1,37 @@
+.caja-boton-micuenta{
+    width: 350px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.boton-micuenta{
+    display: flex;
+    justify-content: flex-start;
+    width: 350px;
+    height: 70px;
+    background-color: white;
+    padding: 15px;
+    gap: 15px;
+}
+
+.boton-micuenta:hover{
+    background-color: #EEEDFF;
+}
+
+.boton-micuenta-franja{
+    width: 5px;
+    height: 50px;
+    background-color: darkslateblue;
+}
+.boton-micuenta-icon{
+    width: 35px;
+    height: 35px;
+}
+.boton-micuenta-title{
+    width: 260px;
+    display: flex;
+    justify-content: space-between;
+}

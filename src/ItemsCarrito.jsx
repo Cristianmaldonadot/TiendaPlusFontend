@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import deleteIcon from './assets/delete.svg'
+import alertIcon from './assets/alert.svg';
 
-export const ItemsCarrito = ({ idproducto, marca, nombre, descripcion, stock, imagen, precio, nombreusu, 
-  cantidad, total, actualizarCounter, cambiarValorEliminacion, enviarProductoEliminado,
-  counterRestarResumen, counterSumarResumen, enviarBoleano }) => {
+export const ItemsCarrito = ({ idproducto, marca, nombre, descripcion, stock, imagen, precio, nombreusu,
+  cantidad, total, isChecked, actualizarCounter, cambiarValorEliminacion, enviarProductoEliminado }) => {
 
-  const [isChecked, setIsChecked] = useState(true);
+  const [isCheckeds, setIsCheckeds] = useState(isChecked);
 
   const handleCantidad = (operacion) => {
     const producto = {
@@ -19,6 +19,7 @@ export const ItemsCarrito = ({ idproducto, marca, nombre, descripcion, stock, im
       nombreusu,
       cantidad,
       total,
+      isChecked,
     };
     const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -31,8 +32,12 @@ export const ItemsCarrito = ({ idproducto, marca, nombre, descripcion, stock, im
       }
     } else if (operacion === 'sumar') {
       if (productoExistente) {
-        productoExistente.cantidad += 1;
-        productoExistente.total = productoExistente.cantidad * productoExistente.precio;
+        if (productoExistente.cantidad >= maximo) {
+          setMaximoCompra(true)
+        } else {
+          productoExistente.cantidad += 1;
+          productoExistente.total = productoExistente.cantidad * productoExistente.precio;
+        }
       } else {
         //carritoActual.push({ ...producto, cantidad: 1 });
       }
@@ -55,8 +60,7 @@ export const ItemsCarrito = ({ idproducto, marca, nombre, descripcion, stock, im
     //enviarBoleano(isChecked);
   }
   const handleCheckboxChange = () => {
-
-    setIsChecked(!isChecked);
+    setIsCheckeds(!isCheckeds);
     const producto = {
       idproducto,
       marca,
@@ -68,28 +72,32 @@ export const ItemsCarrito = ({ idproducto, marca, nombre, descripcion, stock, im
       nombreusu,
       cantidad,
       total,
+      isChecked,
     };
-    if (isChecked) {
-      
-      counterRestarResumen(producto.cantidad, producto.total);
-      
-    } else {
-      counterSumarResumen(producto.cantidad, producto.total);
+
+    const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
+    const productoExistente = carritoActual.find(item => item.idproducto === producto.idproducto);
+
+    if (productoExistente) {
+      productoExistente.isChecked = !isChecked;
     }
-    enviarBoleano(!isChecked);
+    console.log(productoExistente.isChecked);
+    localStorage.setItem('carrito', JSON.stringify(carritoActual));
+    actualizarCounter();
   };
   useEffect(() => {
     //handleCantidad();
   }, []);
+
+  const maximo = Math.round(stock / 15);
 
   return (
     <div className='items-carrito'>
       <label className='items-carrito-div'>
         <input
           className='input-valid-car'
-          onClick={handleCheckboxChange}
           type="checkbox"
-          checked={isChecked}
+          checked={isCheckeds}
           onChange={handleCheckboxChange} />
       </label>
       <div className='items-carrito-div2'>
@@ -108,14 +116,20 @@ export const ItemsCarrito = ({ idproducto, marca, nombre, descripcion, stock, im
         <div className='items-carrito-precio'>
           <h2>S/. {precio.toLocaleString('en-US')}</h2>
         </div>
-        <div className='carrito-cantidad'>
-          <button onClick={cantidad === 1 ? () => handleCantidad('delete') : () => handleCantidad('restar')} className='boton-mas-menos' >
-            {
-              cantidad === 1 ? <img style={{ width: '20px' }} src={deleteIcon} /> : "-"
-            }
-          </button>
-          <h4>{cantidad}</h4>
-          <button onClick={() => handleCantidad('sumar')} className='boton-mas-menos'>+</button>
+        <div className='carrito-cantidad-div'>
+          <div className='carrito-botones'>
+            <button onClick={cantidad === 1 ? () => handleCantidad('delete') : () => handleCantidad('restar')} className='boton-mas-menos' >
+              {
+                cantidad === 1 ? <img style={{ width: '20px' }} src={deleteIcon} /> : "-"
+              }
+            </button>
+            <h4>{cantidad}</h4>
+            <button onClick={() => handleCantidad('sumar')} className='boton-mas-menos'>+</button>
+          </div>
+          {
+            cantidad === maximo ? (<div className='cantidad-maxima-producto-carrito'>
+              <span className='detalle-span-producto-carrito' >Maximo {maximo} unidades</span></div>) : ''
+          }
         </div>
       </div>
     </div>

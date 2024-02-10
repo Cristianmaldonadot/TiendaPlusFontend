@@ -1,5 +1,6 @@
 export const useFetchRegistrarProducto = async (nombre, descripcion, stock, precio, usuario, archivo) => {
-
+    const variableEnt = import.meta.env.VITE_BACKEND_URL
+    
     const token = localStorage.getItem('token');
 
     const formData = new FormData();
@@ -11,7 +12,7 @@ export const useFetchRegistrarProducto = async (nombre, descripcion, stock, prec
     formData.append('file', archivo);
 
 
-    const url = `http://localhost:8075/registrarproducto`
+    const url = `${variableEnt}/registrarproducto`
     const resp = await fetch(url, {
         method: 'POST', headers: { Authorization: `Bearer ${token}` },
         body: formData,

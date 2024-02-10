@@ -1,13 +1,15 @@
 export const useObtenerIdUsuario = async (nombreusuario) => {
-
+    const variableEnt = import.meta.env.VITE_BACKEND_URL
+    
     const token = localStorage.getItem('token');
 
-    const url = `http://localhost:8075/usuariopornombre/${nombreusuario}`
+    const url = `${variableEnt}/usuariopornombre/${nombreusuario}`
     const resp = await fetch(url, { 
         method: 'GET', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         });
     const data = await resp.json();
     const idusuario = data.idusuario;
+    console.log("Info de usuario", data)
     
     
     /*if (idusuario) {

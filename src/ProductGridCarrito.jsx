@@ -9,8 +9,6 @@ export const ProductGridCarrito = ({ idusuario, actualizarCounters }) => {
 
     const [eliminacion, setEliminacion] = useState(false)
 
-    const [valorBoleano, setValorBoleano] = useState(true)
-
     const cambiarValorEliminacion = (valor) => {
         setEliminacion(valor);
     }
@@ -28,28 +26,10 @@ export const ProductGridCarrito = ({ idusuario, actualizarCounters }) => {
     const handreClicks = () => {
         actualizarCounters();
         const { sumaTotales, totalCantidades } = useFetchLocalStorage()
-        if(valorBoleano){
-            setCountResumen(totalCantidades);
-            settotalpagar(sumaTotales);
-            console.log("estoy adentro")
-        } 
-        console.log("estoy afuera")
+        setCountResumen(totalCantidades);
+        settotalpagar(sumaTotales);
     };
-    const restarValorResumen = (valor1, valor2) =>{
-        setCountResumen(countResumen - valor1);
-        settotalpagar(totalpagar - valor2);
-    }
-
-    const sumarValorResumen = (valor1, valor2) =>{
-        setCountResumen(countResumen + valor1);
-        settotalpagar(totalpagar + valor2);
-    }
-
-    const recibirBoleano = (valor) =>{
-        setValorBoleano(valor);
-        console.log("estoy en recibir boleano", valor)
-    }
-
+    
     useEffect(() => {
         //recibirBoleano();
       }, []);
@@ -61,17 +41,15 @@ export const ProductGridCarrito = ({ idusuario, actualizarCounters }) => {
                 <div className='products-car'>
                     {
                         nuevoCarrito.map((producto) => (
+                           
                             <ItemsCarrito
                                 key={producto.idproducto}
                                 {...producto}
                                 actualizarCounter={handreClicks}
                                 cambiarValorEliminacion={(value) => cambiarValorEliminacion(value)}
                                 enviarProductoEliminado={recibirProductoEliminado}
-                                counterRestarResumen={restarValorResumen}
-                                counterSumarResumen={sumarValorResumen}
-                                enviarBoleano={recibirBoleano}
                             />
-
+                                        
                         ))
                     }
 

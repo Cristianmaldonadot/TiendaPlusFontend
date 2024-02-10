@@ -14,7 +14,7 @@ export const ResumenOrden = ({totalpagar, count}) => {
             
            
             <div>
-                <button className='boton-carrito'>Continuar Compra</button>
+                <button className='boton-resumen'>Continuar Compra</button>
             </div>
            
         </div>

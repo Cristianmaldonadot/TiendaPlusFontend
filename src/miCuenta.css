@@ -1,0 +1,198 @@
+.micuenta-contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1400px;
+    height: auto;
+    gap: 15px;
+}
+.micuenta-title{
+    display: flex;
+    padding: 20px;
+    width: 1360px;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    z-index: 900;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.128) ;
+}
+.micuenta-title-icon{
+    width: 85px;
+    height: 85px;
+}
+.micuenta-title-nombre{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: 20px;
+}
+.micuenta-content{
+    display: flex;
+    gap: 15px;
+    width: 1400px;
+    height: 500px;
+    z-index: 900;
+}
+
+.micuenta-content-bar{
+    width: 350px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+}
+
+.micuenta-content-page{
+    display: flex;
+    justify-content: center;
+    width: 1100px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+}
+a{
+    text-decoration: none;
+}
+.micuenta-content-page-datospersonales{
+    display: grid;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 950px;
+    height: 300px;
+    gap: 35px;
+    text-align: start;
+}
+.page-datospersonales-div{
+    width: 950px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+}
+.page-datospersonales-labelinput{
+    position: relative;
+    width: 270px;
+    font-size: 14px;
+}
+.input-page-datospersonales{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+    border-radius: 0;
+    border: solid 0px ;
+    border-bottom: solid 1px;
+    font-size: 17px;
+}
+.direccion-content{
+    width: 950px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.direccion-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+}
+.agregar-direccion{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.mostrar-mensaje{
+    width: 280px; 
+    height: 40px;
+    display: flex; 
+}
+.micuenta-content-page-direcciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 950px;
+    height: 300px;
+    gap: 35px;
+    text-align: start;
+}
+
+.micompra-content{
+    width: 950px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.miscompras-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+}
+.agregar-tarjeta{
+    display: flex;
+    gap: 15px;
+}
+.tarjetas-content{
+    width: 950px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.banner-div{
+    position: relative; 
+    background-color: gray; 
+    width: 100% ; 
+    display: flex
+}
+.banner-div img{
+    width: 100%;
+}
+.banner-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.div-cerrar{
+    display: flex;
+    position: relative;
+    width: 530px;
+    height: 50px;
+}
+.div-title{
+    width: 530px;
+    height: 50px;
+}
+
+.contenedor-avatares{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 530px;
+    height: 350px;
+}
+
+.div-boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 530px;
+    height: 80px;
+}
+.item-avatar{
+    width: 70px;
+
+}
+.boton-agregar-avatar{
+    width: 200px;
+    height: 55px;
+    border-radius: 15px;
+}

@@ -5,10 +5,10 @@ import { useObtenerIdUsuario } from './hooks/useObtenerIdUsuario';
 export const ModalMostrarAgregarProductos = ({ cerrarventana }) => {
 
     const nombreusuario = localStorage.getItem('usuario')
-    
-    const obtenerIdUsuario = async()=>{
+
+    const obtenerIdUsuario = async () => {
         const idusuario = await useObtenerIdUsuario(nombreusuario);
-        console.log("aca esta",idusuario);
+        console.log("aca esta", idusuario);
         setUsuario(idusuario);
     }
 
@@ -55,14 +55,19 @@ export const ModalMostrarAgregarProductos = ({ cerrarventana }) => {
         const data = await useFetchRegistrarProducto(nombre, descripcion, stock, precio, usuario, archivo);
 
         alert(data);
-        //redirigirAIndex();
+        redirigirAIndex();
 
     }
 
+    const url = localStorage.getItem("urlinicio");
+
     const redirigirAIndex = () => {
-        window.location.href = '/';
+        window.location.href = url;
     };
     obtenerIdUsuario();
+
+    const categorias = ['Computo', 'TVs', 'Videojuegos', 'Tecnología', 'Celular', 'Camping', 
+    'Mujer', 'Hombre', 'Electrodomesticos', 'Zapatos', 'Decoración', 'Construccion'];  //Aca de agregan las categorias predefinidas
 
     return (
 
@@ -93,10 +98,15 @@ export const ModalMostrarAgregarProductos = ({ cerrarventana }) => {
                             </div>
                             <div className='agregar-productos'>
                                 <label >Usuario</label>
-                                <input className='modal-input-productos' type="text" value={usuario} readOnly/>
+                                <input className='modal-input-productos' type="text" value={usuario} readOnly />
                             </div>
                             <div className='agregar-productos'>
-
+                                <label >Categoria</label>
+                                <select className='modal-select-productos' name="" id="">
+                                    {categorias.map((cat)=>(
+                                        <option key={cat} value={cat}>{cat}</option>
+                                    ))}                            
+                                </select>
                             </div>
                             <div className='agregar-productos'>
                                 <label >Imagen</label>
@@ -110,7 +120,7 @@ export const ModalMostrarAgregarProductos = ({ cerrarventana }) => {
                             <div className='agregar-productos'>
 
                             </div>
-                            <button className='boton-carrito'>Guardar</button>
+                            <button className='boton-agregarproducto'>Guardar</button>
                         </form>
                     </div>
                 </div>

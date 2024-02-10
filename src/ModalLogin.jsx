@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logotiendaplus from './assets/logotiendaplus.svg'
 import { useFetchLogin } from './hooks/useFetchLogin';
+import { Link } from 'react-router-dom';
 
 export const ModalLogin = ({ cerrarventana }) => {
 
@@ -8,7 +9,7 @@ export const ModalLogin = ({ cerrarventana }) => {
 
     const cerrarModal = () => {
         document.body.classList.remove('no-scroll');
-        cerrarventana(false);
+        redirigirAIndex();
     }
 
     const [username, setUsername] = useState('');
@@ -26,13 +27,16 @@ export const ModalLogin = ({ cerrarventana }) => {
         event.preventDefault();
 
         try {
-            const { token, usuario } = await useFetchLogin(username, password);
+            const { token, usuario, rol } = await useFetchLogin(username, password);
 
             if (token) {
                 // Guardar el token en el localStorage o realizar otras acciones según tus necesidades
                 localStorage.setItem('token', token);
                 localStorage.setItem('usuario', usuario);
-                console.log('Token guardado en localStorage:', token);
+                localStorage.setItem('roles', rol);
+                console.log('Token guardado en localStorage:', token,rol);
+                const rolaaa = localStorage.getItem('roles')
+                console.log('Este es el ROl', rolaaa);
 
                 // Redirigir o realizar otras acciones según tus necesidades
                 redirigirAIndex();
@@ -50,8 +54,10 @@ export const ModalLogin = ({ cerrarventana }) => {
 
     const valorVariable = obtenerParametro('id');
 
+    const url = localStorage.getItem("urlinicio");
+
     const redirigirAIndex = () => {
-        window.location.href = `/?id=${valorVariable}`;
+        window.location.href = url;
     };
 
     return (
@@ -74,7 +80,7 @@ export const ModalLogin = ({ cerrarventana }) => {
                             <input className='modal-input' type="password" value={password} onChange={handlePasswordChange} />
                             <button className='boton-carrito'>Ingresar</button>
                         </form>
-                        <h4>ó Registrate <a href=''>aqui</a></h4>
+                        <h4>ó Registrate <Link className='link' to={`/registrate`}>aqui</Link></h4>
                     </div>
                 </div>
             </div>
