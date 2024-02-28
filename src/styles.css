@@ -596,11 +596,11 @@ span {
   text-align: center;
 }
 
-.modal form {
+.modal-form {
   display: grid;
   align-items: center;
   justify-content: center;
-  width: 420px;
+  width: 350px;
   height: 280px;
   gap: 10px;
   text-align: start;
@@ -723,7 +723,7 @@ span {
 
 .agregar-productos {
   display: grid;
-  width: 200px;
+  width: 225px;
 }
 
 
@@ -732,13 +732,15 @@ span {
 }
 
 .modal-registrate-titulo {
-  height: 30px;
+  display: flex;
+  align-items: center;
+  height: 50px;
 }
 
 .form-registrarse {
   grid-template-columns: repeat(2, 1fr);
-  width: 420px;
-  height: 280px;
+  width: 460px;
+  height: 210px;
   display: grid;
   gap: 10px;
   text-align: start;
@@ -798,7 +800,7 @@ span {
   border-bottom: 1px solid rgb(97, 32, 158);
   color: black;
   font-size: 14px;
-  width: 170px;
+  width: 192px;
 }
 
 .modal-select-productos {
@@ -825,7 +827,11 @@ span {
 }
 
 .modal-login-boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 400px;
+  height: 70px;
 }
 
 .paginacion {

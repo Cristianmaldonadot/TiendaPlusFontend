@@ -34,7 +34,7 @@ export const ModalLogin = ({ cerrarventana }) => {
                 localStorage.setItem('token', token);
                 localStorage.setItem('usuario', usuario);
                 localStorage.setItem('roles', rol);
-                console.log('Token guardado en localStorage:', token,rol);
+                console.log('Token guardado en localStorage:', token, rol);
                 const rolaaa = localStorage.getItem('roles')
                 console.log('Este es el ROl', rolaaa);
 
@@ -68,19 +68,25 @@ export const ModalLogin = ({ cerrarventana }) => {
                 </div>
                 <div className='modal'>
                     <div className='modal-container'>
-                        <button onClick={cerrarModal} className='boton-cerrar' >X</button>
+                        <div className='div-cerrar'>
+                            <button onClick={cerrarModal} className='boton-cerrar' >X</button>
+                        </div>
                         <div className='modal-login-boton'>
                             <img src={logotiendaplus} alt="logo" />
                         </div>
-                        <h2>Hola Inicia Sesión para Comprar</h2>
-                        <form onSubmit={handleSubmit}>
-                            <label >Usario</label>
-                            <input className='modal-input' type="text" value={username} onChange={handleUsernameChange} />
+                        <div className='modal-registrate-titulo'>
+                            <h2>Hola Inicia Sesión</h2>
+                        </div>
+                        <form onSubmit={handleSubmit} className='modal-form'>
+                            <label >Usuario</label>
+                            <input style={{width:'320px'}} className='modal-input' type="text" value={username} onChange={handleUsernameChange} />
                             <label >Contraseña</label>
-                            <input className='modal-input' type="password" value={password} onChange={handlePasswordChange} />
-                            <button className='boton-carrito'>Ingresar</button>
+                            <input style={{width:'320px'}} className='modal-input' type="password" value={password} onChange={handlePasswordChange} />
+                            <button style={{width:'350px'}} className='boton-carrito'>Ingresar</button>
                         </form>
-                        <h4>ó Registrate <Link className='link' to={`/registrate`}>aqui</Link></h4>
+                        <div style={{ width: '400', height: '70px', display: 'flex', alignItems: 'center' }}>
+                            <h4>ó Registrate <Link className='link' to={`/registrate`}>aqui</Link></h4>
+                        </div>
                     </div>
                 </div>
             </div>

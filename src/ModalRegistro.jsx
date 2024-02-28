@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logotiendaplus from './assets/logotiendaplus.svg'
 import { useFetchRegistrarUsuario } from './hooks/useFetchRegistrarUsuario';
 
@@ -51,7 +51,7 @@ export const ModalRegistro = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const data = await useFetchRegistrarUsuario(username, docidentidad, celular,  email, password, roles);
+        const data = await useFetchRegistrarUsuario(username, docidentidad, celular, email, password, roles);
 
         alert(data);
         redirigirAIndex();
@@ -70,41 +70,50 @@ export const ModalRegistro = () => {
                 </div>
                 <div className='modal'>
                     <div className='modal-container'>
-                        <button onClick={cerrarModal} className='boton-cerrar' >X</button>
+                        <div className='div-cerrar'>
+                            <button onClick={cerrarModal} className='boton-cerrar' >X</button>
+                        </div>
                         <div className='modal-login-boton'>
                             <img src={logotiendaplus} alt="logo" />
                         </div>
                         <div className='modal-registrate-titulo'>
                             <h2>Registrate</h2>
                         </div>
-                        <form onSubmit={handleSubmit} className='form-registrarse'  >
-                            <div className='agregar-productos'>
-                                <label >Usuario</label>
-                                <input className='modal-input-registrarse' type="text" value={username} onChange={handleUsernameChange} />
+                        <form onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+                            <div className='form-registrarse'>
+                                <div className='agregar-productos'>
+                                    <label >Usuario</label>
+                                    <input className='modal-input-registrarse' type="text" value={username} onChange={handleUsernameChange} />
+                                </div>
+                                <div className='agregar-productos'>
+                                    <label >Doc. Identidad</label>
+                                    <input className='modal-input-registrarse' type="text" value={docidentidad} onChange={handleDocidentidadChange} />
+                                </div>
+                                <div className='agregar-productos'>
+                                    <label >Celular</label>
+                                    <input className='modal-input-registrarse' type="text" value={celular} onChange={handleCelularChange} />
+                                </div>
+                                <div className='agregar-productos'>
+                                    <label >E-mail</label>
+                                    <input className='modal-input-registrarse' type="email" value={email} onChange={handleEmailChange} />
+                                </div>
+                                <div className='agregar-productos'>
+                                    <label >Password</label>
+                                    <input className='modal-input-registrarse' type="password" value={password} onChange={handlePaswordChange} />
+                                </div>
+                                <div className='agregar-productos'>
+                                    <label >Rol</label>
+                                    <input className='modal-input-registrarse' type="text" value={roles} onChange={handleRolesChange} />
+                                </div>
                             </div>
-                            <div className='agregar-productos'>
-                                <label >Doc. Identidad</label>
-                                <input className='modal-input-registrarse' type="text" value={docidentidad} onChange={handleDocidentidadChange} />
+                            <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'250px', height:'70px'}}>
+                                <button style={{height:'50px'}} className='boton-registrarse'>Registrarse</button>
                             </div>
-                            <div className='agregar-productos'>
-                                <label >Celular</label>
-                                <input className='modal-input-registrarse' type="text" value={celular} onChange={handleCelularChange} />
-                            </div>
-                            <div className='agregar-productos'>
-                                <label >E-mail</label>
-                                <input className='modal-input-registrarse' type="email" value={email} onChange={handleEmailChange} />
-                            </div>
-                            <div className='agregar-productos'>
-                                <label >Password</label>
-                                <input className='modal-input-registrarse' type="password" value={password} onChange={handlePaswordChange} />
-                            </div>
-                            <div className='agregar-productos'>
-                                <label >Rol</label>
-                                <input className='modal-input-registrarse' type="text" value={roles} onChange={handleRolesChange} />
-                            </div>
-                            <button className='boton-registrarse'>Registrarse</button>
                         </form>
-                        <h4>ó Registrate aqui</h4>
+                        <div style={{ width: '400', height: '70px', display: 'flex', alignItems: 'center' }}>
+                            <h4>ó Inicia Sesión <Link className='link' to={`/iniciar_sesion`}>aqui</Link></h4>
+                        </div>
+
                     </div>
                 </div>
             </div>
